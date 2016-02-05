@@ -100,7 +100,7 @@ def indent_list_items(key, reverse=False):
         bind(key)
             .to('asciidoc_indent_list_item', reverse=reverse)
             .when('selection_empty').true()
-            .also('preceding_text').regex_match('^\\s*[*.-]+\\s+$')
+            .also('preceding_text').regex_match('^\\s*[*.-]+(\\s*(\\[)[xX* ](\\]))?\\s+$')
             .also('following_text').regex_match('^$'),
 
         # When you select one or more list items and press the *key*, then the
@@ -113,6 +113,7 @@ def indent_list_items(key, reverse=False):
 
 
 Keymap(
+    paired_chars('-', '-'),
     paired_chars('*', '*'),
     paired_chars('_', '_'),
     paired_chars('`', '`'),
@@ -160,9 +161,22 @@ Keymap(
     # When the cursor is at EOL with an (un)ordered list item and you hit
     # Enter, then the next item is added (with the same nesting level).
     bind('enter')
-        .to('insert_snippet', contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+)).*/\n$2$3/}')
+        .to('insert_snippet', contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))?((\\[)[xX* ](\\]\s*))?.*/\n$2$3$5 $6/}')
         .when('auto_complete_visible').false()
         .also('preceding_text').regex_contains('^\\s*([*.-]+)\\s+\\S'),
+
+    # When the cursor is at beginning of a list item a "[" will create a
+    # checkbox and places the cursor at EOL.
+    bind('[')
+        .to('insert_snippet', contents='[ ] $0')
+        .when('auto_complete_visible').false()
+        .also('preceding_text').regex_contains('^\\s*([*.-]+)'),
+
+    # When the cursor is at line with an checkbox item and you hit
+    # Alt+Enter, then the checkbox is toggled
+    bind('alt+enter')
+        .to('asciidoc_toggle_checkbox')
+        .when('auto_complete_visible').false(),
 
     # When the cursor is at EOL with a callout list item and you hit Enter,
     # then the next item is added (with incremented number).
@@ -180,7 +194,7 @@ Keymap(
             ['insert', {'characters': '\n'}],
             ['move', {'by': 'characters', 'forward': False}]])
         .when('auto_complete_visible').false()
-        .also('preceding_text').regex_match('^\\s*(?:[*.-]+|<\\d+>)\\s+$')
+        .also('preceding_text').regex_match('^\\s*(?:[*.-]+|<\\d+>)(\\s*(\\[)[xX* ](\\]))?\\s+$')
         .also('following_text').regex_match('^\\s*$'),
 
     common_context=[

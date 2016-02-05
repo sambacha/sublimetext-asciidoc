@@ -2422,6 +2422,16 @@ Examples:
 					<key>name</key>
 					<string>constant.numeric.list.bullet.asciidoc</string>
 				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.list.checkbox.asciidoc</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>markup.checkbox.checked.asciidoc</string>
+				</dict>
 			</dict>
 			<key>comment</key>
 			<string>Marker of an unordered (bullet) list item.
@@ -2439,7 +2449,7 @@ Examples:
   ----- level 5
 </string>
 			<key>match</key>
-			<string>^(\s*(\-|\*{1,5}))\s+(?=\S)</string>
+			<string>^(\s*(\-|\*{1,5}))(\s+\[([xX* ])\])?\s+(?=\S)</string>
 			<key>name</key>
 			<string>markup.list.bulleted.asciidoc</string>
 		</dict>

@@ -961,10 +961,12 @@ repository:
         ---- level 4
         ----- level 5
     name: markup.list.bulleted.asciidoc
-    match: ^(\s*(\-|\*{1,5}))\s+(?=\S)
+    match: ^(\s*(\-|\*{1,5}))(\s+\[([xX* ])\])?\s+(?=\S)
     captures:
       '1': {name: string.unquoted.list.bullet.asciidoc}
       '2': {name: constant.numeric.list.bullet.asciidoc}
+      '3': {name: punctuation.definition.list.checkbox.asciidoc}
+      '4': {name: markup.checkbox.checked.asciidoc}
 
   colist_item_marker:
     comment: |
