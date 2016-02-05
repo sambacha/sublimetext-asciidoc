@@ -161,7 +161,8 @@ Keymap(
     # When the cursor is at EOL with an (un)ordered list item and you hit
     # Enter, then the next item is added (with the same nesting level).
     bind('enter')
-        .to('insert_snippet', contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))?((\\[)[xX* ](\\]\s*))?.*/\n$2$3$5 $6/}')
+        .to('insert_snippet',
+        contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))?((\\[)[xX* ](\\]\s*))?.*/\n$2$3$5 $6/}')
         .when('auto_complete_visible').false()
         .also('preceding_text').regex_contains('^\\s*([*.-]+)\\s+\\S'),
 
