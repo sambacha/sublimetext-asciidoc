@@ -1890,7 +1890,7 @@
     ],
     "command": "insert_snippet",
     "args": {
-      "contents": "${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))?((\\[)[xX* ](\\]\\s*))?.*/\n$2$3$5 $6/}"
+      "contents": "${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))(\\[[xX* ]\\]\\s*)?.*/\n$2$3$4/}"
     },
     "context": [
       {
@@ -1937,7 +1937,7 @@
       {
         "key": "preceding_text",
         "operator": "regex_contains",
-        "operand": "^\\s*([*.-]+)",
+        "operand": "^\\s*([*.-]+)(?!.*[\\[\\w])",
         "match_all": true
       },
       {

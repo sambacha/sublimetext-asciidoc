@@ -162,7 +162,7 @@ Keymap(
     # Enter, then the next item is added (with the same nesting level).
     bind('enter')
         .to('insert_snippet',
-        contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))?((\\[)[xX* ](\\]\s*))?.*/\n$2$3$5 $6/}')
+        contents='${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+))(\\[[xX* ]\\]\\s*)?.*/\n$2$3$4/}')
         .when('auto_complete_visible').false()
         .also('preceding_text').regex_contains('^\\s*([*.-]+)\\s+\\S'),
 
@@ -171,7 +171,7 @@ Keymap(
     bind('[')
         .to('insert_snippet', contents='[ ] $0')
         .when('auto_complete_visible').false()
-        .also('preceding_text').regex_contains('^\\s*([*.-]+)'),
+        .also('preceding_text').regex_contains('^\\s*([*.-]+)(?!.*[\\[\\w])'),
 
     # When the cursor is at line with an checkbox item and you hit
     # Alt+Enter, then the checkbox is toggled
