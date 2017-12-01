@@ -2233,7 +2233,7 @@ Examples:
 			<key>contentName</key>
 			<string>meta.superscriptinner.asciidoc</string>
 			<key>end</key>
-			<string>^</string>
+			<string>\^</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
