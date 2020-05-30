@@ -1,5 +1,10 @@
+dist: xenial
 language: python
-sudo: false
-python: 3.3
-install: script/bootstrap
-script: script/test
+python:
+  - "3.3"
+# command to install dependencies
+install:
+  - script/bootstrap
+# command to run tests
+script:
+  - script/test
