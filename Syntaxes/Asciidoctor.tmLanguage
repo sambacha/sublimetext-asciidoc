@@ -2304,7 +2304,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(=) (\w.*)$\n?</string>
+			<string>^(=) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.0.asciidoc</string>
 		</dict>
@@ -2324,7 +2324,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(==) (\w.*)$\n?</string>
+			<string>^(==) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.1.asciidoc</string>
 		</dict>
@@ -2344,7 +2344,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(===) (\w.*)$\n?</string>
+			<string>^(===) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.2.asciidoc</string>
 		</dict>
@@ -2364,7 +2364,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(====) (\w.*)$\n?</string>
+			<string>^(====) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.3.asciidoc</string>
 		</dict>
@@ -2384,7 +2384,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(=====) (\w.*)$\n?</string>
+			<string>^(=====) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.4.asciidoc</string>
 		</dict>
@@ -2404,7 +2404,7 @@ Examples:
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(======) (\w.*)$\n?</string>
+			<string>^(======) ({?\w.*)$\n?</string>
 			<key>name</key>
 			<string>markup.heading.level.5.asciidoc</string>
 		</dict>
@@ -2421,6 +2421,16 @@ Examples:
 				<dict>
 					<key>name</key>
 					<string>constant.numeric.list.bullet.asciidoc</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.list.checkbox.asciidoc</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>markup.checkbox.checked.asciidoc</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -2439,7 +2449,7 @@ Examples:
   ----- level 5
 </string>
 			<key>match</key>
-			<string>^(\s*(\-|\*{1,5}))\s+(?=\S)</string>
+			<string>^(\s*(\-|\*{1,5}))(\s+\[([xX* ])\])?\s+(?=\S)</string>
 			<key>name</key>
 			<string>markup.list.bulleted.asciidoc</string>
 		</dict>

@@ -69,3 +69,19 @@ class AsciidocRunCommandsCommand(TextCommand):
                 self.view.run_command(command)
             else:
                 self.view.run_command(command[0], *command[1:])
+
+
+class AsciidocToggleCheckbox(TextCommand):
+    def run(self, edit):
+        view = self.view
+
+        checkboxes = view.find_by_selector('markup.checkbox.checked.asciidoc')
+
+        for sel in view.sel():
+            region = view.line(sel)
+            for checkbox in checkboxes:
+                if region.contains(checkbox):
+                    if ' ' == view.substr(checkbox):
+                        view.replace(edit, checkbox, 'X')
+                    elif view.substr(checkbox) in ['x', '*', 'X']:
+                        view.replace(edit, checkbox, ' ')

@@ -18,6 +18,8 @@ TODO
     - You can disable indentation of list items in your settings file.
 * At the end of a callouts list item, pressing <kbd>Enter</kbd> will automatically insert the new list item with incremented number.
     - Pressing <kbd>Enter</kbd> on the blank list item will remove it.
+* At the end of a checklist item, pressing <kbd>Enter</kbd> will automatically insert the new checklist item. 
+    - Pressing <kbd>Alt+Enter</kbd> toggles the checkbox(es) on the selected line(s). 
 
 ### Snippets
 
@@ -90,4 +92,4 @@ Most of the commands, keymaps and some text in this readme are based on (or insp
 ## License
 
 This project is licensed under [MIT License](http://opensource.org/licenses/MIT/).
-For the full text of the license, see the [LICENSE](LICENSE) file.
+For the full text of the license, see the [LICENSE](LICENSE) file. 

@@ -7,6 +7,6 @@ set -e
 cd "$(dirname "$0")/.."
 
 echo '==> Installing development dependencies...'
-pip install -r requirements-dev.txt | sed -n '/Requirement already satisfied/!p'
+pip3 install -r requirements-dev.txt | sed -n '/Requirement already satisfied/!p'
 
 exit ${PIPESTATUS[0]}  # exit status of pip install
