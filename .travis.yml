@@ -1,5 +1,8 @@
+dist: xenial
 language: python
-sudo: false
-python: 3.3
-install: script/bootstrap
-script: script/test
+python:
+  - "3.4"
+install:
+  - pip install -r requirements-dev.txt
+script:
+  - script/test
