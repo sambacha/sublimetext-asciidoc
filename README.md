@@ -1,8 +1,30 @@
 # AsciiDoc Package for SublimeText 3
 
+[![Build Status](https://travis-ci.com/sambacha/sublimetext-asciidoc.svg?branch=master)](https://travis-ci.com/sambacha/sublimetext-asciidoc)
+
+
 This package provides more complete and up-to-date syntax highlighting, snippets and other goodies for AsciiDoc editing in [SublimeText 3](http://www.sublimetext.com/3).
 
-TODO
+Original credit to: https://github.com/manuelh9r/sublimetext-asciidoc 
+
+### Overview
+
+##### Changelog As of 2020.05.30
+- updated travis-ci testing and build
+- added status badge and updated README
+- confirmed working with  Sublime Text3 Version: Build 3211, Mac OS X ^10.12
+
+#### Additional Features 
+Some additional features have been added:
+
+- allow titles to start with attribute references @GeraldLoeffler
+
+- Fix regex matching end of superscipt. @emtenet
+
+- Add extended support for checklists @manuelh9r 
+
+#### Other
+- will add to sublime package manager
 
 ## Features
 
